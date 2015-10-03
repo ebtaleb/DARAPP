@@ -1,4 +1,4 @@
-package upmc.restservice.resources;
+package upmc.restservice.resources.tracks;
 
 public class Track {
 
