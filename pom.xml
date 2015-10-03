@@ -11,6 +11,7 @@
 
     <properties>
         <jettyVersion>9.3.0.M0</jettyVersion>
+        <jerseyVersion>2.22</jerseyVersion>
     </properties>
 
     <dependencies>
@@ -23,7 +24,13 @@
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-jetty-servlet</artifactId>
-            <version>2.22</version>
+            <version>${jerseyVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>${jerseyVersion}</version>
         </dependency>
 
         <dependency>

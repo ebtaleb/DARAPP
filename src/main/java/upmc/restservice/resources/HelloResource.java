@@ -8,6 +8,6 @@ import javax.ws.rs.Produces;
 public class HelloResource {  
     @GET @Produces("text/plain")  
     public String sayHello() {  
-        return "Hello from HelloResource!";  
+        return "Am I Java Enterprise yet uguu~";  
     }  
 }
