@@ -1,9 +1,35 @@
 package upmc.restservice.resources.tracks;
 
-public class Track {
+import java.io.Serializable;
+import java.util.Date;
 
-	String title;
-	String singer;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "TRACKS")
+public class Track implements Serializable {
+
+    @Id 
+	//@GeneratedValue
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int id;
+
+	@Column(name = "TITLE")
+	private String title;
+
+	@Column(name = "SINGER")
+	private String singer;
+
+	public Track() {}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int i) {
+		this.id = i;
+	}
 
 	public String getTitle() {
 		return title;

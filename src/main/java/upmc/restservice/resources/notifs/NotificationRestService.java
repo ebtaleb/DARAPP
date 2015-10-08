@@ -4,6 +4,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import upmc.restservice.resources.notifs.Notification;
 
@@ -15,8 +17,8 @@ public class NotificationRestService {
     public List<Notification> fetchAll() {
         // fetch all notifications
         List<Notification> notifications = new ArrayList<Notification>();
-        notifications.add(new Notification(1, "New user created"));
-        notifications.add(new Notification(2, "New order created"));
+        notifications.add(new Notification(1, "New user created", "admin"));
+        notifications.add(new Notification(2, "New order created", "admin"));
         return notifications;
     }
 
@@ -25,7 +27,7 @@ public class NotificationRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Notification fetchBy(@PathParam("id") int id) {
         // fetch notification by id
-        return new Notification(id, "Rise and shine.");
+        return new Notification(id, "Rise and shine.", "admin");
     }
 
     @POST
