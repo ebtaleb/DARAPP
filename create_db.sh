@@ -32,7 +32,7 @@ while getopts ":c:d:" opt; do
     esac
 done
 
-table="use $db; CREATE TABLE TRACKS (ID INT (5) NOT NULL,TITLE VARCHAR (20) NOT NULL,SINGER VARCHAR (20) NOT NULL,PRIMARY KEY ( ID ));"
+table="use $db; CREATE TABLE IF NOT EXISTS TRACKS (ID INT (5) NOT NULL,TITLE VARCHAR (20) NOT NULL,SINGER VARCHAR (20) NOT NULL,PRIMARY KEY ( ID ));"
 
 mysql -hlocalhost -uroot -pnyanyanya -e "$table"
 echo "database $db created, table TRACKS created"
