@@ -19,8 +19,8 @@ import org.apache.tomcat.SimpleInstanceManager;
 import org.eclipse.jetty.apache.jsp.JettyJasperInitializer;
 import org.eclipse.jetty.plus.annotation.ContainerInitializer;
 
-
-import upmc.restservice.HelloServlet;
+import upmc.restservice.LoginServlet;
+import upmc.restservice.RegisterServlet;
 
 public class JerseyServer {
 
@@ -68,14 +68,16 @@ public class JerseyServer {
 
         // Create WebAppContext for JSP files.
         WebAppContext webAppContext = new WebAppContext();
-        webAppContext.setContextPath("/jsp/*");
+        webAppContext.setContextPath("/app/*");
         webAppContext.setResourceBase("src/main/webapps/jsp/");
         webAppContext.setInitParameter("dirAllowed", "false");
         webAppContext.setAttribute("org.eclipse.jetty.containerInitializers", jspInitializers());
         webAppContext.addBean(new ServletContainerInitializersStarter(webAppContext), true);
 
-        webAppContext.addServlet(jspServletHolder(), "*.jsp");
-        webAppContext.addServlet(HelloServlet.class, "/date/");
+        //webAppContext.addServlet(jspServletHolder(), "*.jsp");
+        webAppContext.addServlet(LoginServlet.class, "/login");
+        webAppContext.addServlet(RegisterServlet.class, "/register");
+        //webAppContext.addServlet(HomeServlet.class, "/home");
 
         // Create a handler list to store our static and servlet context handlers.
         HandlerList handlers = new HandlerList();
